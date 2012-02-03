@@ -1,0 +1,7 @@
+= has_property
+
+A Gem used to define custom property and data type behavior
+
+== INSTALL:
+
+  sudo gem install has_property
