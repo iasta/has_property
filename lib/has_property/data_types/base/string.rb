@@ -6,6 +6,16 @@ module HasProperty
       # Descendants can be built to consolidate all functionality for a type of string, e.g. an e-mail address.
       class String < ::String
 
+        # called within the constructor -- initializes the value
+        def initialize(value)
+          super(adjust_value value)
+        end
+
+        # Trims the whitespace of all strings
+        def adjust_value(value)
+          value.to_s.strip
+        end
+
         # Required for all data types -- returns the actual string value
         def value
           to_s

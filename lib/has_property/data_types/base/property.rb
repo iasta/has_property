@@ -10,7 +10,7 @@ module HasProperty
 
         # called within the constructor -- initializes the value
         def initialize(value)
-          @value = value
+          @value = adjust_value value
         end
 
         # outputs the value's string conversion (useful particularly within views)
@@ -21,6 +21,12 @@ module HasProperty
         # delegates the blank? function to the primitive value
         def blank?
           @value.blank?
+        end
+
+        # hook to modify the value, such as trimming a string
+        # by default, it returns the unadulterated value
+        def adjust_value(value)
+          value
         end
 
         # delegates all methods missing in this class to the primitive value
